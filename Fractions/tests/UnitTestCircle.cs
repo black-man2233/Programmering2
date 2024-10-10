@@ -2,7 +2,7 @@ using System.Reflection.Emit;
 
 namespace tests
 {
-    public class UnitTestCirle
+    public class UnitTestCircle
     {
         [Fact]
         public void Can_Instanciate_Circle()
@@ -45,15 +45,12 @@ namespace tests
             Circle circle = new Circle(radius);
 
             // Act
-            double result = circle.Perimeter();
-            double expectedResult = 2 * Math.PI * radius;
+            double result = circle.Area();
+            double expectedResult = radius * radius * Math.PI;
 
             // Assert
             Assert.NotNull(circle);
             Assert.Equal(result, expectedResult);
-            Assert.Equal(result, (radius * 2) * Math.PI);
-            Assert.Equal(result, 2 * radius * Math.PI);
-            Assert.Equal(result, 2 * (radius * Math.PI));
         }
 
         [Fact]
@@ -61,20 +58,15 @@ namespace tests
         {
             // Arrange
             double radius = 22;
-            Circle circle;
+            Circle circle = new Circle(radius);
 
             // Act
-            circle = new Circle(radius);
-
+            string? result = circle.ToString();
+            string expectedResult = $"techmath.Circle({radius})";
+            
             // Assert
             Assert.NotNull(circle);
-            Assert.Equal(circle.ToString(), (Math.Pow(radius, 2) * Math.PI));
-        }
-
-
-        public override string? ToString()
-        {
-            return base.ToString() + "(" + this.radius + ")";
+            Assert.Equal(result, expectedResult);
         }
     }
 }

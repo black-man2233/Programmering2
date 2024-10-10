@@ -399,3 +399,8 @@ FodyWeavers.xsd
 *Fractions/.idea/
 *Fractions/.idea
 *.idea
+Fractions/bin
+Fractions/obj
+Fractions/packages
+Fractions/.vs
+Fractions/.config
